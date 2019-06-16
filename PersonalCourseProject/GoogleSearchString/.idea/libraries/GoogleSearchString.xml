@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GoogleSearchString">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/GoogleSearchString_jar/GoogleSearchString.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

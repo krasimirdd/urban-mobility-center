@@ -1,0 +1,10 @@
+com\axway\googleSearch\util\FileUtil.class
+com\axway\googleSearch\exceptions\BadSearchBoundaryException.class
+com\axway\googleSearch\exceptions\BadSearchException.class
+com\axway\googleSearch\constants\Constants.class
+com\axway\googleSearch\exceptions\BadSearchStringException.class
+com\axway\googleSearch\exceptions\BadWordException.class
+com\axway\googleSearch\util\GsonUtil.class
+com\axway\googleSearch\api\Google.class
+com\axway\googleSearch\constants\BadWords.class
+com\axway\googleSearch\util\Printer.class
