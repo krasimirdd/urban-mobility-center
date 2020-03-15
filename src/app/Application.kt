@@ -17,7 +17,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 fun main() {
-    var vehicles = ArrayList<Vehicle>()
+    val vehicles = ArrayList<Vehicle>()
     var traces = ArrayList<Trace>()
     var nodes = LinkedList<Node>()
 
