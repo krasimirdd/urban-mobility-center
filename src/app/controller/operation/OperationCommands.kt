@@ -34,7 +34,7 @@ class AddVehicleCommand(private var vehicles: ArrayList<Vehicle>) :
             vehicles.add(vehicle)
 
         } catch (e: IllegalArgumentException) {
-            e.message
+            consolePrintLn(e.message!!)
         }
 
         return vehicles
@@ -42,7 +42,7 @@ class AddVehicleCommand(private var vehicles: ArrayList<Vehicle>) :
 }
 
 class AddNodeCommand(private var traces: ArrayList<Trace>) :
-    OpCommand<Trace> {
+        OpCommand<Trace> {
     override fun execute(): ArrayList<Trace> {
         val nodeBuilder = Node.Builder()
         consolePrintLn("Име на спирката ")
@@ -69,7 +69,7 @@ class AddNodeCommand(private var traces: ArrayList<Trace>) :
 }
 
 class AssignTraceToVehicleCommand(private val traces: ArrayList<Trace>, private val vehicles: ArrayList<Vehicle>) :
-    OpCommand<Trace> {
+        OpCommand<Trace> {
     override fun execute(): ArrayList<Trace> {
 
         consolePrintLn("Избери автомобила")

@@ -14,13 +14,14 @@ class TypeInfoCommand : InfoCommand<Type>(Type.values().toList())
 
 class ShowMenuCommand : InfoCommand<Unit>(Collections.emptyList()) {
     override fun execute() {
-        consolePrintLn(" 1. Информация за маршрутни таксита ")
-        consolePrintLn(" 2. Информация за маршрути ")
-        consolePrintLn(" 3. Информация за видовете автомобили ")
-        consolePrintLn(" 4. Добави автомобил")
-        consolePrintLn(" 5. Добави спирка")
-        consolePrintLn(" 6. Задай маршрут на автомобил")
-        consolePrintLn(" 7. Покажи меню")
-        consolePrintLn(" 8. Изключи")
+        val string = " 1. Информация за маршрутни таксита \n" +
+        " 2. Информация за маршрути \n" +
+        " 3. Информация за видовете автомобили \n" +
+        " 4. Добави автомобил \n" +
+        " 5. Добави спирка \n" +
+        " 6. Задай маршрут на автомобил \n" +
+        " 7. Покажи меню \n" +
+        " 8. Изключи \n"
+        consolePrintLn(string)
     }
 }

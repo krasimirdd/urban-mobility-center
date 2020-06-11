@@ -4,13 +4,13 @@ import kotlin.random.Random
 
 
 class Vehicle private constructor(
-    val id: Int?,
-    private val make: String?,
-    private val model: String?,
-    private val year: String?,
-    private val capacity: Type,
-    private val loadCapacity: Int?,
-    private val fuelConsumption: Double
+        val id: Int?,
+        private val make: String?,
+        private val model: String?,
+        private val year: String?,
+        private val capacity: Type,
+        private val loadCapacity: Int?,
+        private val fuelConsumption: Double
 ) : Entity() {
 
     private var isAssign = false
@@ -29,25 +29,25 @@ class Vehicle private constructor(
         val sb = StringBuilder()
 
         sb.append("Марка : $make | ")
-            .append("Модел : $model | ")
-            .append("Година : $year |")
-            .append("Места : ${capacity.getValue(capacity)} | ")
-            .append("Товаропоносимост : $loadCapacity | ")
-            .append("Разход [л/100км] : $fuelConsumption | ")
-            .append("Зает : $isAssign | ")
-            .append("Номер на автомобила : $id")
+                .append("Модел : $model | ")
+                .append("Година : $year |")
+                .append("Места : ${capacity.getValue(capacity)} | ")
+                .append("Товаропоносимост : $loadCapacity | ")
+                .append("Разход [л/100км] : $fuelConsumption | ")
+                .append("Зает : $isAssign | ")
+                .append("Номер на автомобила : $id")
 
         return sb.toString()
     }
 
     data class Builder(
-        var id: Int? = Random.nextInt(1000,9999),
-        var make: String? = null,
-        var model: String? = null,
-        var year: String? = null,
-        var capacity: Type = Type.HATCHBACK,
-        var loadCapacity: Int? = 1500,
-        var fuelConsumption: Double = 10.0
+            var id: Int? = Random.nextInt(1000, 9999),
+            var make: String? = null,
+            var model: String? = null,
+            var year: String? = null,
+            var capacity: Type = Type.HATCHBACK,
+            var loadCapacity: Int? = 1500,
+            var fuelConsumption: Double = 10.0
     ) {
 
         fun make(make: String) = apply {
@@ -67,6 +67,9 @@ class Vehicle private constructor(
         fun year(year: String) = apply {
             if (year.isEmpty()) {
                 throw IllegalArgumentException("Моля задайте година")
+            }
+            if (year.toInt() < 1800) {
+                throw java.lang.IllegalArgumentException("Невалидна година! Първият автомобил с ДВГ е направен в Германия – през 1885 г. от компания Mercedes-Benz Карл Бенц.")
             }
             this.year = year
         }

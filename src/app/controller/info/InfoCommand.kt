@@ -6,7 +6,11 @@ import java.util.*
 
 
 abstract class InfoCommand<T>(private val list: List<T>) : Command {
+
     override fun execute() {
+        if (list.isEmpty()) {
+            consolePrintLn("No entries")
+        }
         list.forEach {
             consolePrintLn(it.toString())
         }

@@ -12,6 +12,7 @@ import app.controller.info.TraceInfoCommand
 import app.controller.info.TypeInfoCommand
 import app.domain.Vehicle
 import app.controller.info.VehicleInfoCommand
+import java.io.File
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,17 +25,17 @@ fun main() {
     fun initNodes(): LinkedList<Node> {
 
         val node1 = Node.Builder().name("НСА")
-            .distanceToPrevious("0").build()
+                .distanceToPrevious("0").build()
         val node2 = Node.Builder().name("Зимен Дворец")
-            .distanceToPrevious("2.1").build()
+                .distanceToPrevious("2.1").build()
         val node3 = Node.Builder().name("Детски Ясли")
-            .distanceToPrevious("1.3").build()
+                .distanceToPrevious("1.3").build()
         val node4 = Node.Builder().name("Христо Ботев")
-            .distanceToPrevious("0.9").build()
+                .distanceToPrevious("0.9").build()
         val node5 = Node.Builder().name("Детски Дом")
-            .distanceToPrevious("1.1").build()
+                .distanceToPrevious("1.1").build()
         val node6 = Node.Builder().name("Телекомуникации")
-            .distanceToPrevious("3.7").build()
+                .distanceToPrevious("3.7").build()
 
         nodes.add(node1)
         nodes.add(node2)
@@ -63,33 +64,33 @@ fun main() {
 
         while (running) {
             val infoProcessor = InfoCommandProcessor()
-            val oprationProcessorVehicle =
-                OperationCommandProcessor<Vehicle>()
-            val oprationProcessorTrace = OperationCommandProcessor<Trace>()
+            val operationProcessorVehicle =
+                    OperationCommandProcessor<Vehicle>()
+            val operationProcessorTrace = OperationCommandProcessor<Trace>()
 
             when (input) {
                 1 -> infoProcessor.addToQueue(VehicleInfoCommand(vehicles))
                 2 -> infoProcessor.addToQueue(TraceInfoCommand(traces))
                 3 -> infoProcessor.addToQueue(TypeInfoCommand())
-                4 -> oprationProcessorVehicle.addToQueue(
-                    AddVehicleCommand(
-                        vehicles
-                    )
+                4 -> operationProcessorVehicle.addToQueue(
+                        AddVehicleCommand(
+                                vehicles
+                        )
                 )
-                5 -> oprationProcessorTrace.addToQueue(AddNodeCommand(traces))
-                6 -> oprationProcessorTrace.addToQueue(
-                    AssignTraceToVehicleCommand(
-                        traces,
-                        vehicles
-                    )
+                5 -> operationProcessorTrace.addToQueue(AddNodeCommand(traces))
+                6 -> operationProcessorTrace.addToQueue(
+                        AssignTraceToVehicleCommand(
+                                traces,
+                                vehicles
+                        )
                 )
                 7 -> infoProcessor.addToQueue(ShowMenuCommand())
                 8 -> running = false
             }
 
             infoProcessor.processCommand()
-            oprationProcessorVehicle.processCommand()
-            oprationProcessorTrace.processCommand()
+            operationProcessorVehicle.processCommand()
+            operationProcessorTrace.processCommand()
             try {
                 input = readLine()!!.toInt()
 
